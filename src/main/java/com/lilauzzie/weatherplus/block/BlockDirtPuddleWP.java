@@ -1,6 +1,9 @@
 package com.lilauzzie.weatherplus.block;
 
 import com.lilauzzie.weatherplus.creativetab.CreativeTabWP;
+import net.minecraft.item.Item;
+
+import java.util.Random;
 
 /**
  * Created by lilauzzie on 30/12/2014.
@@ -13,5 +16,12 @@ public class BlockDirtPuddleWP extends BlockWP {
         this.setHardness(0.5F);
         this.setStepSound(soundTypeGravel);
         this.setCreativeTab(CreativeTabWP.WP_TAB);
+        this.setHarvestLevel("shovel", 0);
     }
+
+    @Override
+    public Item getItemDropped(int metadata, Random rand, int fortune) {
+        return Item.getItemById(3);
+    };
+
 }
