@@ -1,0 +1,16 @@
+
+
+
+# Item localizations
+item.weatherplus:bucketIron.name=Iron Bucket
+item.weatherplus:bucketIronWater.name=Iron Bucket of Water
+item.weatherplus:bucketIronLava.name=Iron Bucket of Lava
+item.weatherplus:bucketIronMilk.name=Iron Bucket of Milk
+
+item.weatherplus:modIconWP.name=Weather Plus Icon
+
+# Block localizations
+tile.weatherplus:dirtPuddle.name=Dirt Puddle
+
+# Gui localizations
+itemGroup.weatherplus=Weather Plus

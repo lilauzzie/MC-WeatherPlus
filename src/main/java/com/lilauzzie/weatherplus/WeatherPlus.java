@@ -1,6 +1,8 @@
 package com.lilauzzie.weatherplus;
 
 import com.lilauzzie.weatherplus.handler.ConfigurationHandler;
+import com.lilauzzie.weatherplus.init.ModBlocks;
+import com.lilauzzie.weatherplus.init.ModItems;
 import com.lilauzzie.weatherplus.proxy.IProxy;
 import com.lilauzzie.weatherplus.reference.Reference;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -28,6 +30,9 @@ public class WeatherPlus {
     public void preInit(FMLPreInitializationEvent event) {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        ModItems.init();
+        ModBlocks.init();
     }
 
     @Mod.EventHandler
