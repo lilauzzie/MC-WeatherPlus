@@ -16,8 +16,8 @@ import net.minecraft.init.Blocks;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
-    public static final ItemWP bucketWP = new ItemBucketIron(Blocks.air);
-    public static final ItemWP bucketWaterWP = new ItemBucketIronWater(Blocks.flowing_water);
+    public static final ItemWP bucketWP = new ItemBucketIron(Blocks.air, 1);
+    public static final ItemWP bucketWaterWP = new ItemBucketIronWater(ModBlocks.waterWP, 1);
 
     public static final ItemWP modIconWP = new ItemModIcon();
 

@@ -1,6 +1,5 @@
 package com.lilauzzie.weatherplus.block;
 
-import com.lilauzzie.weatherplus.creativetab.CreativeTabWP;
 import net.minecraft.item.Item;
 
 import java.util.Random;
@@ -15,7 +14,6 @@ public class BlockDirtPuddleWP extends BlockWP {
         this.setBlockName("dirtPuddle");
         this.setHardness(0.5F);
         this.setStepSound(soundTypeGravel);
-        this.setCreativeTab(CreativeTabWP.WP_TAB);
         this.setHarvestLevel("shovel", 0);
     }
 

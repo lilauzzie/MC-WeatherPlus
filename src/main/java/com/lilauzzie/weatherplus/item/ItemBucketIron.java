@@ -9,8 +9,8 @@ import net.minecraft.block.Block;
 
 public class ItemBucketIron extends ItemBucketBase {
 
-    public ItemBucketIron(Block block) {
-        super(block);
+    public ItemBucketIron(Block block, float f) {
+        super(block, f);
         this.setMaxStackSize(1);
         this.setUnlocalizedName("bucketIron");
     }

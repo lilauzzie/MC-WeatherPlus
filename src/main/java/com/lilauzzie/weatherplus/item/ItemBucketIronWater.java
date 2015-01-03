@@ -13,12 +13,10 @@ import net.minecraft.util.MathHelper;
 
 public class ItemBucketIronWater extends ItemBucketBase {
 
-    public ItemBucketIronWater(Block block) {
-        super(block);
+    public ItemBucketIronWater(Block block, float f) {
+        super(block, f);
         this.setMaxStackSize(1);
         this.setUnlocalizedName("bucketIronWater");
     }
-
-
 
 }

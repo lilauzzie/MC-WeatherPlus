@@ -1,6 +1,7 @@
 package com.lilauzzie.weatherplus.item;
 
 import com.lilauzzie.weatherplus.init.ModItems;
+import com.lilauzzie.weatherplus.utility.LogHelper;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,9 +21,11 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 public class ItemBucketBase extends ItemWP  {
     private Block isFull;
+    private int metaL;
 
-    public ItemBucketBase(Block block) {
+    public ItemBucketBase(Block block, float f) {
         this.setMaxStackSize(1);
+        this.setMaxDamage(0);
         this.isFull = block;
     }
 
@@ -70,10 +73,11 @@ public class ItemBucketBase extends ItemWP  {
 
                     Material material = world.getBlock(i, j, k).getMaterial();
                     int l = world.getBlockMetadata(i, j, k);
+                    metaL = l;
 
                     if (material == Material.water && l == 0) {
                         world.setBlockToAir(i, j, k);
-                        return this.tryPickupLiquid(itemStack, entityPlayer, ModItems.bucketWaterWP);
+                        return this.tryPickupLiquid(itemStack, entityPlayer, ModItems.bucketWaterWP, l);
                     }
 
                     /*
@@ -114,7 +118,7 @@ public class ItemBucketBase extends ItemWP  {
                         return itemStack;
                     }
 
-                    if (this.tryPlaceContainedLiquid(world, i, j, k) && !entityPlayer.capabilities.isCreativeMode) {
+                    if (this.tryPlaceContainedLiquid(world, i, j, k, metaL) && !entityPlayer.capabilities.isCreativeMode) {
                         return new ItemStack(ModItems.bucketWP);
                     }
 
@@ -125,7 +129,7 @@ public class ItemBucketBase extends ItemWP  {
         return itemStack;
     }
 
-    private ItemStack tryPickupLiquid(ItemStack itemStack, EntityPlayer entityPlayer, Item item) {
+    private ItemStack tryPickupLiquid(ItemStack itemStack, EntityPlayer entityPlayer, Item item, int meta) {
         if (entityPlayer.capabilities.isCreativeMode) {
             return itemStack;
         }
@@ -134,14 +138,14 @@ public class ItemBucketBase extends ItemWP  {
         }
         else {
             if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(item))) {
-                entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(item, 1, 0), false);
+                entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(item, 1, meta), false);
             }
 
             return itemStack;
         }
     }
 
-    public boolean tryPlaceContainedLiquid(World world, int i, int j, int k) {
+    public boolean tryPlaceContainedLiquid(World world, int i, int j, int k, int meta) {
         if (this.isFull == Blocks.air) {
             return false;
         }
@@ -165,7 +169,7 @@ public class ItemBucketBase extends ItemWP  {
                         world.func_147480_a(i, j, k, true);
                     }
 
-                    world.setBlock(i, j, k, this.isFull, 0, 3);
+                    world.setBlock(i, j, k, this.isFull, meta, 3);
                 }
 
                 return true;

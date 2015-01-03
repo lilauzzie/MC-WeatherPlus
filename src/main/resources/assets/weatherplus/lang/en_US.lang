@@ -11,6 +11,7 @@ item.weatherplus:modIconWP.name=Weather Plus Icon
 
 # Block localizations
 tile.weatherplus:dirtPuddle.name=Dirt Puddle
+tile.weatherplus:waterWP=Water
 
 # Gui localizations
 itemGroup.weatherplus=Weather Plus

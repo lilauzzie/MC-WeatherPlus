@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "weatherplus:blocks/dirtPuddle",
+        "up": "weatherplus:blocks/water_still",
+        "north": "weatherplus:blocks/dirtPuddle",
+        "south": "weatherplus:blocks/dirtPuddle",
+        "west": "weatherplus:blocks/dirtPuddle",
+        "east": "weatherplus:blocks/dirtPuddle"
+    }
+}
